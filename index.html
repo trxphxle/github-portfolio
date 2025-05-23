@@ -172,13 +172,15 @@
         .about-section {
             background: transparent;
             color: #fff;
-            max-width: 600px;
-            margin: 30px 0 0 60px;
-            padding: 0;
-            border-radius: 0;
-            font-size: 1.1em;
+            max-width: 350px;
+            min-width: 250px;
+            margin: 0;
+            padding: 16px 20px;
+            border-radius: 0 0 8px 8px;
+            font-size: 1.05em;
             line-height: 1.7;
             box-shadow: none;
+            z-index: 10;
         }
     </style>
 </head>
@@ -186,16 +188,18 @@
     <nav>
         <div class="logo">B</div>
         <ul class="nav-links">
-            <li><a href="#">01. About</a></li>
+            <li style="position: relative;">
+                <a href="#" class="about-link">01. About</a>
+                <div id="about-section" class="about-section" style="display: none; position: absolute; left: 0; top: 100%;">
+                    <p>
+                        When I'm not diving into a good book or hitting the trails for a weekend hike, you'll often find me perfecting my latte art. I'm passionate about analyzing sports through detailed metrics and, as a student, I also dedicate my time to volunteering with VietTech.
+                    </p>
+                </div>
+            </li>
             <li><a href="#">02. Projects</a></li>
             <li><a href="TLeResume.pdf" target="_blank" class="resume-btn">03. Resume</a></li>
         </ul>
     </nav>
-    <div id="about-section" class="about-section" style="display: none;">
-        <p>
-            When I'm not diving into a good book or hitting the trails for a weekend hike, you'll often find me perfecting my latte art. I'm passionate about analyzing sports through detailed metrics and, as a student, I also dedicate my time to volunteering with VietTech.
-        </p>
-    </div>
     <main>
         <section class="intro">
             <p class="greeting">Hi, my name is</p>
@@ -215,12 +219,11 @@
         </a>
     </div>
     <script>
-    document.querySelector('.nav-links li a').addEventListener('click', function(e) {
+    document.querySelector('.about-link').addEventListener('click', function(e) {
         e.preventDefault();
         var about = document.getElementById('about-section');
-        if (about.style.display === 'none') {
+        if (about.style.display === 'none' || about.style.display === '') {
             about.style.display = 'block';
-            about.scrollIntoView({ behavior: 'smooth' });
         } else {
             about.style.display = 'none';
         }
