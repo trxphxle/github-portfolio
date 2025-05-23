@@ -169,6 +169,17 @@
             font-size: 1.1em;
             vertical-align: middle;
         }
+        .about-section {
+            background: rgba(0,0,0,0.85);
+            color: #fff;
+            max-width: 600px;
+            margin: 30px 0 0 60px;
+            padding: 24px 32px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.7;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -176,10 +187,8 @@
         <div class="logo">B</div>
         <ul class="nav-links">
             <li><a href="#">01. About</a></li>
-            <li><a href="#">02. Experience</a></li>
-            <li><a href="#">03. Work</a></li>
-            <li><a href="#">04. Contact</a></li>
-            <li><a href="#" class="resume-btn">Resume</a></li>
+            <li><a href="#">02. Projects</a></li>
+            <li><a href="resume.pdf" target="_blank" class="resume-btn">03. Resume</a></li>
         </ul>
     </nav>
     <main>
@@ -192,6 +201,11 @@
             </p>
         </section>
     </main>
+    <div id="about-section" class="about-section" style="display: none;">
+        <p>
+            When I'm not diving into a good book or hitting the trails for a weekend hike, you'll often find me perfecting my latte art. I'm passionate about analyzing sports through detailed metrics and, as a student, I also dedicate my time to volunteering with VietTech.
+        </p>
+    </div>
     <div class="contact-links">
         <a href="https://www.linkedin.com/in/tlcsun/" target="_blank">
             <i class="fab fa-linkedin"></i> LinkedIn
@@ -200,5 +214,17 @@
             <i class="fas fa-envelope"></i> Email Me
         </a>
     </div>
+    <script>
+    document.querySelector('.nav-links li a').addEventListener('click', function(e) {
+        e.preventDefault();
+        var about = document.getElementById('about-section');
+        if (about.style.display === 'none') {
+            about.style.display = 'block';
+            about.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            about.style.display = 'none';
+        }
+    });
+    </script>
 </body>
 </html>
